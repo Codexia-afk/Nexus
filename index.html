@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nexus — The Operating System for Modern Teams</title>
+  <meta name="description" content="Nexus unifies your workflow, automates the noise, and gives your team the clarity to move fast. Built for the teams that build the future." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='14' fill='%23FF6B2B'/><circle cx='16' cy='16' r='6' fill='%231A1A1A'/></svg>" />
+</head>
+<body>
+
+  <!-- Custom cursor -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-trail" id="cursorTrail"></div>
+
+  <!-- NAV -->
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">
+        <span class="logo-mark">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+            <circle cx="14" cy="14" r="13" stroke="#FF6B2B" stroke-width="1.5"/>
+            <circle cx="14" cy="14" r="6" fill="#FF6B2B"/>
+            <circle cx="14" cy="14" r="2.5" fill="#1A1A1A"/>
+          </svg>
+        </span>
+        <span class="logo-text">NEXUS</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#features">Features</a></li>
+        <li><a href="#testimonials">Stories</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#" class="nav-docs">Docs</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="btn-ghost" id="navSignIn" onclick="handleGoogleSignIn()">Sign in</button>
+        <button class="btn-primary" onclick="handleGoogleSignIn()">Get started <span class="btn-arrow">→</span></button>
+      </div>
+      <button class="nav-hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="nav-mobile" id="navMobile">
+      <a href="#features">Features</a>
+      <a href="#testimonials">Stories</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#" onclick="handleGoogleSignIn()">Sign in with Google</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="hero-grid-bg"></div>
+    <div class="hero-orb hero-orb-1"></div>
+    <div class="hero-orb hero-orb-2"></div>
+    <div class="hero-orbit-ring hero-orbit-1"></div>
+    <div class="hero-orbit-ring hero-orbit-2"></div>
+    <div class="hero-orbit-ring hero-orbit-3"></div>
+    <div class="hero-orbit-dot dot-1"></div>
+    <div class="hero-orbit-dot dot-2"></div>
+    <div class="hero-orbit-dot dot-3"></div>
+
+    <div class="hero-content">
+      <div class="hero-badge reveal">
+        <span class="badge-dot"></span>
+        <span>Now in public beta — 2,400+ teams onboarded</span>
+      </div>
+      <h1 class="hero-title reveal reveal-delay-1">
+        The operating<br/>
+        <em>system</em> for<br/>
+        <span class="title-highlight">modern teams.</span>
+      </h1>
+      <p class="hero-sub reveal reveal-delay-2">
+        Nexus unifies your workflow, automates the noise, and gives your team the clarity to move at the speed of thought. Stop managing tools. Start building the future.
+      </p>
+      <div class="hero-cta reveal reveal-delay-3">
+        <button class="btn-primary btn-large" onclick="handleGoogleSignIn()">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" class="google-icon">
+            <path d="M19.6 10.23c0-.68-.06-1.36-.18-2H10v3.79h5.39a4.6 4.6 0 01-2 3.02v2.5h3.24c1.9-1.75 3-4.33 3-7.31z" fill="#4285F4"/>
+            <path d="M10 20c2.7 0 4.96-.9 6.62-2.43l-3.24-2.51c-.9.6-2.04.96-3.38.96-2.6 0-4.8-1.75-5.59-4.11H1.07v2.6A10 10 0 0010 20z" fill="#34A853"/>
+            <path d="M4.41 11.91A6.01 6.01 0 014.1 10c0-.66.11-1.3.31-1.91V5.49H1.07A10 10 0 000 10c0 1.61.39 3.14 1.07 4.51l3.34-2.6z" fill="#FBBC05"/>
+            <path d="M10 3.98c1.47 0 2.79.5 3.83 1.5l2.87-2.87C14.96.9 12.7 0 10 0A10 10 0 001.07 5.49l3.34 2.6C5.2 5.73 7.4 3.98 10 3.98z" fill="#EA4335"/>
+          </svg>
+          Continue with Google
+        </button>
+        <button class="btn-outline btn-large" onclick="document.getElementById('features').scrollIntoView({behavior:'smooth'})">
+          See how it works <span>↓</span>
+        </button>
+      </div>
+      <div class="hero-social-proof reveal reveal-delay-4">
+        <div class="proof-avatars">
+          <img src="https://i.pravatar.cc/32?img=1" alt="user" />
+          <img src="https://i.pravatar.cc/32?img=2" alt="user" />
+          <img src="https://i.pravatar.cc/32?img=3" alt="user" />
+          <img src="https://i.pravatar.cc/32?img=4" alt="user" />
+          <img src="https://i.pravatar.cc/32?img=5" alt="user" />
+        </div>
+        <div class="proof-text">
+          <div class="proof-stars">★★★★★</div>
+          <span>Loved by <strong>12,000+</strong> builders worldwide</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-visual reveal reveal-delay-2">
+      <div class="dashboard-preview">
+        <div class="preview-bar">
+          <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+          <span class="preview-url">app.nexus.io/dashboard</span>
+        </div>
+        <div class="preview-body">
+          <div class="preview-sidebar">
+            <div class="ps-logo">
+              <svg width="18" height="18" viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="13" stroke="#FF6B2B" stroke-width="1.5"/><circle cx="14" cy="14" r="6" fill="#FF6B2B"/><circle cx="14" cy="14" r="2.5" fill="#1A1A1A"/></svg>
+            </div>
+            <div class="ps-nav-item active"></div>
+            <div class="ps-nav-item"></div>
+            <div class="ps-nav-item"></div>
+            <div class="ps-nav-item"></div>
+            <div class="ps-nav-item"></div>
+          </div>
+          <div class="preview-main">
+            <div class="pm-header">
+              <div class="pm-title-bar">
+                <div class="pm-title-text"></div>
+                <div class="pm-badge"></div>
+              </div>
+            </div>
+            <div class="pm-stats">
+              <div class="pm-stat-card">
+                <div class="psc-label"></div>
+                <div class="psc-value orange"></div>
+                <div class="psc-chart">
+                  <div class="chart-bar" style="height:40%"></div>
+                  <div class="chart-bar" style="height:65%"></div>
+                  <div class="chart-bar" style="height:45%"></div>
+                  <div class="chart-bar" style="height:80%"></div>
+                  <div class="chart-bar active" style="height:95%"></div>
+                </div>
+              </div>
+              <div class="pm-stat-card">
+                <div class="psc-label"></div>
+                <div class="psc-value"></div>
+                <div class="psc-chart">
+                  <div class="chart-bar" style="height:55%"></div>
+                  <div class="chart-bar" style="height:35%"></div>
+                  <div class="chart-bar" style="height:70%"></div>
+                  <div class="chart-bar" style="height:50%"></div>
+                  <div class="chart-bar active" style="height:85%"></div>
+                </div>
+              </div>
+              <div class="pm-stat-card">
+                <div class="psc-label"></div>
+                <div class="psc-value"></div>
+                <div class="psc-chart">
+                  <div class="chart-bar" style="height:30%"></div>
+                  <div class="chart-bar" style="height:60%"></div>
+                  <div class="chart-bar" style="height:75%"></div>
+                  <div class="chart-bar" style="height:45%"></div>
+                  <div class="chart-bar active" style="height:90%"></div>
+                </div>
+              </div>
+            </div>
+            <div class="pm-table">
+              <div class="pt-row header">
+                <div class="pt-cell"></div><div class="pt-cell"></div><div class="pt-cell"></div>
+              </div>
+              <div class="pt-row"><div class="pt-cell w60"></div><div class="pt-cell w30"></div><div class="pt-cell badge-cell"><span class="pt-badge green"></span></div></div>
+              <div class="pt-row"><div class="pt-cell w50"></div><div class="pt-cell w40"></div><div class="pt-cell badge-cell"><span class="pt-badge orange"></span></div></div>
+              <div class="pt-row"><div class="pt-cell w70"></div><div class="pt-cell w25"></div><div class="pt-cell badge-cell"><span class="pt-badge green"></span></div></div>
+              <div class="pt-row"><div class="pt-cell w45"></div><div class="pt-cell w35"></div><div class="pt-cell badge-cell"><span class="pt-badge gray"></span></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="preview-glow"></div>
+    </div>
+  </section>
+
+  <!-- LOGOS -->
+  <section class="logos-section">
+    <p class="logos-label">Trusted by teams at</p>
+    <div class="logos-track">
+      <div class="logos-inner" id="logosInner">
+        <span class="logo-item">Vercel</span>
+        <span class="logo-item">Stripe</span>
+        <span class="logo-item">Linear</span>
+        <span class="logo-item">Notion</span>
+        <span class="logo-item">Figma</span>
+        <span class="logo-item">Loom</span>
+        <span class="logo-item">Retool</span>
+        <span class="logo-item">Supabase</span>
+        <span class="logo-item">Vercel</span>
+        <span class="logo-item">Stripe</span>
+        <span class="logo-item">Linear</span>
+        <span class="logo-item">Notion</span>
+        <span class="logo-item">Figma</span>
+        <span class="logo-item">Loom</span>
+        <span class="logo-item">Retool</span>
+        <span class="logo-item">Supabase</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="features" id="features">
+    <div class="section-inner">
+      <div class="section-header reveal">
+        <div class="section-tag">CAPABILITIES</div>
+        <h2 class="section-title">Everything your team<br/><em>actually needs.</em></h2>
+        <p class="section-sub">We didn't build another project manager. We built the connective tissue between your tools, your people, and your goals.</p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card feature-card-large reveal">
+          <div class="fc-icon">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+              <path d="M4 8h24M4 16h16M4 24h20" stroke="#FF6B2B" stroke-width="2" stroke-linecap="round"/>
+              <circle cx="26" cy="24" r="4" stroke="#FFB088" stroke-width="1.5"/>
+              <path d="M24.5 24l1 1 2-2" stroke="#FFB088" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3>Intelligent Task Engine</h3>
+          <p>Tasks that understand context. Auto-assign, auto-prioritize, and auto-escalate based on your team's actual working patterns — not rigid rules you set once and forget.</p>
+          <div class="fc-visual">
+            <div class="task-flow">
+              <div class="tf-node">Intake</div>
+              <div class="tf-arrow">→</div>
+              <div class="tf-node active">AI Sort</div>
+              <div class="tf-arrow">→</div>
+              <div class="tf-node">Assign</div>
+              <div class="tf-arrow">→</div>
+              <div class="tf-node">Ship</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="feature-card reveal reveal-delay-1">
+          <div class="fc-icon">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+              <circle cx="16" cy="16" r="12" stroke="#FF6B2B" stroke-width="1.5"/>
+              <path d="M16 8v8l5 3" stroke="#FFB088" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3>Real-time Sync</h3>
+          <p>Every change, everywhere, instantly. No refresh. No conflicts. No "did you see my update?"</p>
+          <div class="fc-tag">Sub-50ms latency</div>
+        </div>
+
+        <div class="feature-card reveal reveal-delay-2">
+          <div class="fc-icon">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+              <rect x="4" y="4" width="10" height="10" rx="2" stroke="#FF6B2B" stroke-width="1.5"/>
+              <rect x="18" y="4" width="10" height="10" rx="2" stroke="#FF6B2B" stroke-width="1.5"/>
+              <rect x="4" y="18" width="10" height="10" rx="2" stroke="#FFB088" stroke-width="1.5"/>
+              <rect x="18" y="18" width="10" height="10" rx="2" stroke="#FFB088" stroke-width="1.5"/>
+            </svg>
+          </div>
+          <h3>Deep Integrations</h3>
+          <p>Connect GitHub, Slack, Figma, Jira, and 80+ tools. Nexus becomes the single source of truth.</p>
+          <div class="fc-tag">80+ integrations</div>
+        </div>
+
+        <div class="feature-card reveal reveal-delay-1">
+          <div class="fc-icon">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+              <path d="M6 26L14 10l6 8 4-5 6 13H6z" stroke="#FF6B2B" stroke-width="1.5" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3>Analytics & Insights</h3>
+          <p>Understand velocity, blockers, and team health at a glance. Data that drives decisions, not just dashboards.</p>
+          <div class="fc-tag">Live dashboards</div>
+        </div>
+
+        <div class="feature-card feature-card-large reveal reveal-delay-2">
+          <div class="fc-icon">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+              <circle cx="16" cy="10" r="4" stroke="#FF6B2B" stroke-width="1.5"/>
+              <circle cx="6" cy="24" r="3" stroke="#FFB088" stroke-width="1.5"/>
+              <circle cx="26" cy="24" r="3" stroke="#FFB088" stroke-width="1.5"/>
+              <path d="M16 14v4M16 18l-7 4M16 18l7 4" stroke="#FF6B2B" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3>Team Intelligence Layer</h3>
+          <p>Nexus learns how your team works. It surfaces the right information to the right person at the right moment — reducing meeting overhead by up to 40%.</p>
+          <div class="fc-visual">
+            <div class="intel-bars">
+              <div class="ib-row"><span>Focus time</span><div class="ib-bar"><div class="ib-fill" style="width:78%"></div></div><span>78%</span></div>
+              <div class="ib-row"><span>Blockers resolved</span><div class="ib-bar"><div class="ib-fill" style="width:92%"></div></div><span>92%</span></div>
+              <div class="ib-row"><span>On-time delivery</span><div class="ib-bar"><div class="ib-fill orange" style="width:85%"></div></div><span>85%</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="feature-card reveal">
+          <div class="fc-icon">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+              <rect x="4" y="8" width="24" height="16" rx="3" stroke="#FF6B2B" stroke-width="1.5"/>
+              <path d="M10 14h12M10 18h8" stroke="#FFB088" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3>Async-first Docs</h3>
+          <p>Write once, share everywhere. Docs that live inside your workflow, not in a separate silo.</p>
+          <div class="fc-tag">Markdown + AI</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonials" id="testimonials">
+    <div class="section-inner">
+      <div class="section-header reveal">
+        <div class="section-tag">STORIES</div>
+        <h2 class="section-title">Teams that moved<br/><em>faster with Nexus.</em></h2>
+      </div>
+
+      <div class="testimonial-carousel" id="testimonialCarousel">
+        <div class="tc-track" id="tcTrack">
+
+          <div class="testimonial-card">
+            <div class="tc-quote">"</div>
+            <p class="tc-text">We cut our sprint planning from 3 hours to 45 minutes. Nexus just… knows what needs to happen next. It's like having a chief of staff who never sleeps.</p>
+            <div class="tc-author">
+              <img src="https://i.pravatar.cc/48?img=11" alt="Sarah Chen" />
+              <div>
+                <strong>Sarah Chen</strong>
+                <span>VP Engineering, Meridian Labs</span>
+              </div>
+              <div class="tc-rating">★★★★★</div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="tc-quote">"</div>
+            <p class="tc-text">I've tried every PM tool on the market. Nexus is the first one that actually adapts to us instead of forcing us to adapt to it. The AI prioritization alone is worth the price.</p>
+            <div class="tc-author">
+              <img src="https://i.pravatar.cc/48?img=22" alt="Marcus Webb" />
+              <div>
+                <strong>Marcus Webb</strong>
+                <span>CTO, Foundry Studio</span>
+              </div>
+              <div class="tc-rating">★★★★★</div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="tc-quote">"</div>
+            <p class="tc-text">Our remote team across 6 time zones finally feels in sync. The async-first design means nobody is blocked waiting for a meeting. Productivity is up 60% in 3 months.</p>
+            <div class="tc-author">
+              <img src="https://i.pravatar.cc/48?img=33" alt="Priya Nair" />
+              <div>
+                <strong>Priya Nair</strong>
+                <span>Head of Product, Cloudshift</span>
+              </div>
+              <div class="tc-rating">★★★★★</div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="tc-quote">"</div>
+            <p class="tc-text">The integrations are seamless. GitHub PRs, Figma files, Slack threads — everything surfaces in Nexus automatically. We stopped context-switching and started shipping.</p>
+            <div class="tc-author">
+              <img src="https://i.pravatar.cc/48?img=44" alt="James Okafor" />
+              <div>
+                <strong>James Okafor</strong>
+                <span>Lead Developer, Stackform</span>
+              </div>
+              <div class="tc-rating">★★★★★</div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="tc-quote">"</div>
+            <p class="tc-text">Nexus replaced four tools for us. The ROI was immediate. But what really sold us was the team intelligence — it surfaces blockers before they become problems.</p>
+            <div class="tc-author">
+              <img src="https://i.pravatar.cc/48?img=55" alt="Elena Vasquez" />
+              <div>
+                <strong>Elena Vasquez</strong>
+                <span>COO, Luminary Health</span>
+              </div>
+              <div class="tc-rating">★★★★★</div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="tc-controls">
+          <button class="tc-btn" id="tcPrev" aria-label="Previous">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M12 4l-6 6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </button>
+          <div class="tc-dots" id="tcDots"></div>
+          <button class="tc-btn" id="tcNext" aria-label="Next">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M8 4l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="stats-section">
+    <div class="section-inner">
+      <div class="stats-grid">
+        <div class="stat-item reveal">
+          <div class="stat-number" data-target="12000">0</div>
+          <div class="stat-label">Teams onboarded</div>
+        </div>
+        <div class="stat-item reveal reveal-delay-1">
+          <div class="stat-number" data-target="40" data-suffix="%">0</div>
+          <div class="stat-label">Reduction in meetings</div>
+        </div>
+        <div class="stat-item reveal reveal-delay-2">
+          <div class="stat-number" data-target="99" data-suffix=".9%">0</div>
+          <div class="stat-label">Uptime SLA</div>
+        </div>
+        <div class="stat-item reveal reveal-delay-3">
+          <div class="stat-number" data-target="80" data-prefix="+">0</div>
+          <div class="stat-label">Integrations available</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="pricing" id="pricing">
+    <div class="section-inner">
+      <div class="section-header reveal">
+        <div class="section-tag">PRICING</div>
+        <h2 class="section-title">Simple pricing.<br/><em>No surprises.</em></h2>
+        <p class="section-sub">Start free. Scale when you're ready. Cancel anytime.</p>
+        <div class="pricing-toggle reveal">
+          <span class="toggle-label" id="toggleMonthly">Monthly</span>
+          <button class="toggle-switch" id="pricingToggle" role="switch" aria-checked="false">
+            <span class="toggle-thumb"></span>
+          </button>
+          <span class="toggle-label" id="toggleAnnual">Annual <span class="toggle-save">Save 20%</span></span>
+        </div>
+      </div>
+
+      <div class="pricing-grid">
+        <div class="pricing-card reveal">
+          <div class="pc-tier">Starter</div>
+          <div class="pc-price">
+            <span class="pc-currency">$</span>
+            <span class="pc-amount" data-monthly="0" data-annual="0">0</span>
+            <span class="pc-period">/mo</span>
+          </div>
+          <p class="pc-desc">Perfect for solo builders and small experiments.</p>
+          <ul class="pc-features">
+            <li><span class="check">✓</span> Up to 3 team members</li>
+            <li><span class="check">✓</span> 5 active projects</li>
+            <li><span class="check">✓</span> Basic integrations (5)</li>
+            <li><span class="check">✓</span> 1GB storage</li>
+            <li><span class="check">✓</span> Community support</li>
+            <li class="muted"><span class="cross">✗</span> AI task engine</li>
+            <li class="muted"><span class="cross">✗</span> Team intelligence</li>
+          </ul>
+          <button class="btn-outline btn-full" onclick="handleGoogleSignIn()">Start free</button>
+        </div>
+
+        <div class="pricing-card pricing-card-featured reveal reveal-delay-1">
+          <div class="pc-popular">Most Popular</div>
+          <div class="pc-tier">Pro</div>
+          <div class="pc-price">
+            <span class="pc-currency">$</span>
+            <span class="pc-amount" data-monthly="29" data-annual="23">29</span>
+            <span class="pc-period">/mo per seat</span>
+          </div>
+          <p class="pc-desc">For growing teams that need to move fast and stay aligned.</p>
+          <ul class="pc-features">
+            <li><span class="check">✓</span> Unlimited team members</li>
+            <li><span class="check">✓</span> Unlimited projects</li>
+            <li><span class="check">✓</span> All integrations (80+)</li>
+            <li><span class="check">✓</span> 50GB storage</li>
+            <li><span class="check">✓</span> Priority support</li>
+            <li><span class="check">✓</span> AI task engine</li>
+            <li><span class="check">✓</span> Team intelligence</li>
+          </ul>
+          <button class="btn-primary btn-full" onclick="handleGoogleSignIn()">Get started <span>→</span></button>
+        </div>
+
+        <div class="pricing-card reveal reveal-delay-2">
+          <div class="pc-tier">Enterprise</div>
+          <div class="pc-price">
+            <span class="pc-currency"></span>
+            <span class="pc-amount" style="font-size:2rem">Custom</span>
+          </div>
+          <p class="pc-desc">For organizations that need security, compliance, and scale.</p>
+          <ul class="pc-features">
+            <li><span class="check">✓</span> Everything in Pro</li>
+            <li><span class="check">✓</span> SSO / SAML</li>
+            <li><span class="check">✓</span> Audit logs</li>
+            <li><span class="check">✓</span> Custom data residency</li>
+            <li><span class="check">✓</span> Dedicated CSM</li>
+            <li><span class="check">✓</span> SLA guarantee</li>
+            <li><span class="check">✓</span> On-premise option</li>
+          </ul>
+          <button class="btn-outline btn-full">Talk to sales</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BAND -->
+  <section class="cta-band">
+    <div class="cta-band-inner reveal">
+      <div class="cta-band-orb"></div>
+      <h2>Ready to build<br/><em>without the friction?</em></h2>
+      <p>Join 12,000+ teams already running on Nexus. Setup takes under 5 minutes.</p>
+      <button class="btn-primary btn-large" onclick="handleGoogleSignIn()">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" class="google-icon">
+          <path d="M19.6 10.23c0-.68-.06-1.36-.18-2H10v3.79h5.39a4.6 4.6 0 01-2 3.02v2.5h3.24c1.9-1.75 3-4.33 3-7.31z" fill="#4285F4"/>
+          <path d="M10 20c2.7 0 4.96-.9 6.62-2.43l-3.24-2.51c-.9.6-2.04.96-3.38.96-2.6 0-4.8-1.75-5.59-4.11H1.07v2.6A10 10 0 0010 20z" fill="#34A853"/>
+          <path d="M4.41 11.91A6.01 6.01 0 014.1 10c0-.66.11-1.3.31-1.91V5.49H1.07A10 10 0 000 10c0 1.61.39 3.14 1.07 4.51l3.34-2.6z" fill="#FBBC05"/>
+          <path d="M10 3.98c1.47 0 2.79.5 3.83 1.5l2.87-2.87C14.96.9 12.7 0 10 0A10 10 0 001.07 5.49l3.34 2.6C5.2 5.73 7.4 3.98 10 3.98z" fill="#EA4335"/>
+        </svg>
+        Start free with Google
+      </button>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="#" class="nav-logo">
+          <span class="logo-mark">
+            <svg width="24" height="24" viewBox="0 0 28 28" fill="none">
+              <circle cx="14" cy="14" r="13" stroke="#FF6B2B" stroke-width="1.5"/>
+              <circle cx="14" cy="14" r="6" fill="#FF6B2B"/>
+              <circle cx="14" cy="14" r="2.5" fill="#1A1A1A"/>
+            </svg>
+          </span>
+          <span class="logo-text">NEXUS</span>
+        </a>
+        <p>The operating system for modern teams. Built for the builders who build the future.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Twitter">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="#" aria-label="GitHub">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+          </a>
+          <a href="#" aria-label="LinkedIn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>Product</h4>
+          <a href="#">Features</a>
+          <a href="#">Integrations</a>
+          <a href="#">Changelog</a>
+          <a href="#">Roadmap</a>
+          <a href="#">Status</a>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <a href="#">About</a>
+          <a href="#">Blog</a>
+          <a href="#">Careers</a>
+          <a href="#">Press</a>
+          <a href="#">Contact</a>
+        </div>
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <a href="#">Documentation</a>
+          <a href="#">API Reference</a>
+          <a href="#">Community</a>
+          <a href="#">Templates</a>
+          <a href="#">Webinars</a>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Cookie Policy</a>
+          <a href="#">Security</a>
+          <a href="#">GDPR</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Nexus Technologies, Inc. All rights reserved.</span>
+      <span>Made with precision for teams that care.</span>
+    </div>
+  </footer>
+
+  <!-- SIGN IN MODAL -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal" id="signInModal">
+      <button class="modal-close" id="modalClose">✕</button>
+      <div class="modal-logo">
+        <svg width="40" height="40" viewBox="0 0 28 28" fill="none">
+          <circle cx="14" cy="14" r="13" stroke="#FF6B2B" stroke-width="1.5"/>
+          <circle cx="14" cy="14" r="6" fill="#FF6B2B"/>
+          <circle cx="14" cy="14" r="2.5" fill="#1A1A1A"/>
+        </svg>
+      </div>
+      <h2>Welcome to Nexus</h2>
+      <p>Sign in to access your workspace and dashboard.</p>
+      <button class="btn-google" id="googleSignInBtn">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+          <path d="M19.6 10.23c0-.68-.06-1.36-.18-2H10v3.79h5.39a4.6 4.6 0 01-2 3.02v2.5h3.24c1.9-1.75 3-4.33 3-7.31z" fill="#4285F4"/>
+          <path d="M10 20c2.7 0 4.96-.9 6.62-2.43l-3.24-2.51c-.9.6-2.04.96-3.38.96-2.6 0-4.8-1.75-5.59-4.11H1.07v2.6A10 10 0 0010 20z" fill="#34A853"/>
+          <path d="M4.41 11.91A6.01 6.01 0 014.1 10c0-.66.11-1.3.31-1.91V5.49H1.07A10 10 0 000 10c0 1.61.39 3.14 1.07 4.51l3.34-2.6z" fill="#FBBC05"/>
+          <path d="M10 3.98c1.47 0 2.79.5 3.83 1.5l2.87-2.87C14.96.9 12.7 0 10 0A10 10 0 001.07 5.49l3.34 2.6C5.2 5.73 7.4 3.98 10 3.98z" fill="#EA4335"/>
+        </svg>
+        Continue with Google
+      </button>
+      <p class="modal-terms">By signing in, you agree to our <a href="#">Terms</a> and <a href="#">Privacy Policy</a>.</p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

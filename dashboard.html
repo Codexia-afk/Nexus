@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nexus — Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="dashboard.css" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='14' fill='%23FF6B2B'/><circle cx='16' cy='16' r='6' fill='%231A1A1A'/></svg>" />
+</head>
+<body>
+
+  <!-- Auth Guard Overlay -->
+  <div class="auth-guard" id="authGuard">
+    <div class="auth-guard-inner">
+      <svg width="48" height="48" viewBox="0 0 28 28" fill="none">
+        <circle cx="14" cy="14" r="13" stroke="#FF6B2B" stroke-width="1.5"/>
+        <circle cx="14" cy="14" r="6" fill="#FF6B2B"/>
+        <circle cx="14" cy="14" r="2.5" fill="#1A1A1A"/>
+      </svg>
+      <p>Verifying session...</p>
+      <div class="auth-spinner"></div>
+    </div>
+  </div>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <a href="index.html" class="sidebar-logo">
+        <svg width="26" height="26" viewBox="0 0 28 28" fill="none">
+          <circle cx="14" cy="14" r="13" stroke="#FF6B2B" stroke-width="1.5"/>
+          <circle cx="14" cy="14" r="6" fill="#FF6B2B"/>
+          <circle cx="14" cy="14" r="2.5" fill="#1A1A1A"/>
+        </svg>
+        <span>NEXUS</span>
+      </a>
+      <button class="sidebar-collapse" id="sidebarCollapse" aria-label="Collapse sidebar">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <path d="M10 3L5 8l5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </div>
+
+    <nav class="sidebar-nav">
+      <div class="nav-section-label">WORKSPACE</div>
+      <a href="#" class="sidebar-link active" data-page="overview">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+          <rect x="1" y="1" width="6" height="6" rx="1.5" stroke="currentColor" stroke-width="1.5"/>
+          <rect x="11" y="1" width="6" height="6" rx="1.5" stroke="currentColor" stroke-width="1.5"/>
+          <rect x="1" y="11" width="6" height="6" rx="1.5" stroke="currentColor" stroke-width="1.5"/>
+          <rect x="11" y="11" width="6" height="6" rx="1.5" stroke="currentColor" stroke-width="1.5"/>
+        </svg>
+        <span>Overview</span>
+      </a>
+      <a href="#" class="sidebar-link" data-page="profile">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+          <circle cx="9" cy="6" r="3.5" stroke="currentColor" stroke-width="1.5"/>
+          <path d="M2 16c0-3.314 3.134-6 7-6s7 2.686 7 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        <span>Profile</span>
+      </a>
+      <a href="#" class="sidebar-link" data-page="permissions">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+          <rect x="3" y="8" width="12" height="9" rx="2" stroke="currentColor" stroke-width="1.5"/>
+          <path d="M6 8V5.5a3 3 0 016 0V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          <circle cx="9" cy="12.5" r="1.5" fill="currentColor"/>
+        </svg>
+        <span>Permissions</span>
+      </a>
+      <a href="#" class="sidebar-link" data-page="activity">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+          <path d="M1 9h3l2-6 3 12 2-8 2 4h4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span>Activity</span>
+      </a>
+
+      <div class="nav-section-label" style="margin-top:16px">SETTINGS</div>
+      <a href="#" class="sidebar-link" data-page="security">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+          <path d="M9 1L2 4v5c0 4.418 3.134 7.5 7 8 3.866-.5 7-3.582 7-8V4L9 1z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+          <path d="M6 9l2 2 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        <span>Security</span>
+      </a>
+      <a href="#" class="sidebar-link" data-page="integrations">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+          <circle cx="4" cy="4" r="2.5" stroke="currentColor" stroke-width="1.5"/>
+          <circle cx="14" cy="4" r="2.5" stroke="currentColor" stroke-width="1.5"/>
+          <circle cx="4" cy="14" r="2.5" stroke="currentColor" stroke-width="1.5"/>
+          <circle cx="14" cy="14" r="2.5" stroke="currentColor" stroke-width="1.5"/>
+          <path d="M6.5 4h5M4 6.5v5M14 6.5v5M6.5 14h5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        <span>Integrations</span>
+      </a>
+    </nav>
+
+    <div class="sidebar-footer">
+      <div class="sidebar-user" id="sidebarUser">
+        <div class="su-avatar" id="suAvatar">
+          <img id="suAvatarImg" src="https://i.pravatar.cc/32?img=12" alt="User" />
+          <span class="su-status"></span>
+        </div>
+        <div class="su-info">
+          <strong id="suName">Loading...</strong>
+          <span id="suEmail">...</span>
+        </div>
+        <button class="su-signout" id="signOutBtn" title="Sign out">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path d="M6 2H3a1 1 0 00-1 1v10a1 1 0 001 1h3M10 11l3-3-3-3M13 8H6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main class="main" id="main">
+
+    <!-- TOP BAR -->
+    <header class="topbar">
+      <div class="topbar-left">
+        <button class="topbar-menu" id="topbarMenu" aria-label="Toggle sidebar">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <path d="M3 5h14M3 10h14M3 15h14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </button>
+        <div class="topbar-breadcrumb">
+          <span>Nexus</span>
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M5 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          <span id="breadcrumbPage">Overview</span>
+        </div>
+      </div>
+      <div class="topbar-right">
+        <div class="topbar-search">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <circle cx="7" cy="7" r="5" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M11 11l3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+          <input type="text" placeholder="Search..." />
+          <kbd>⌘K</kbd>
+        </div>
+        <button class="topbar-notif" aria-label="Notifications">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+            <path d="M9 1a6 6 0 016 6v3l1.5 2.5H1.5L3 10V7a6 6 0 016-6z" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M7 14.5a2 2 0 004 0" stroke="currentColor" stroke-width="1.5"/>
+          </svg>
+          <span class="notif-badge">3</span>
+        </button>
+        <div class="topbar-avatar" id="topbarAvatar">
+          <img id="topbarAvatarImg" src="https://i.pravatar.cc/32?img=12" alt="User" />
+        </div>
+      </div>
+    </header>
+
+    <!-- PAGE: OVERVIEW -->
+    <div class="page active" id="page-overview">
+      <div class="page-header">
+        <div>
+          <h1 class="page-title">Good morning, <span id="greetName">Alex</span> 👋</h1>
+          <p class="page-sub">Here's what's happening in your workspace today.</p>
+        </div>
+        <div class="page-header-actions">
+          <div class="session-badge">
+            <span class="session-dot"></span>
+            <span>Session active</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- KPI Cards -->
+      <div class="kpi-grid">
+        <div class="kpi-card">
+          <div class="kpi-icon orange">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <path d="M10 2L12.5 7.5H18L13.5 11L15.5 17L10 13.5L4.5 17L6.5 11L2 7.5H7.5L10 2Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="kpi-data">
+            <span class="kpi-value" id="kpiProjects">—</span>
+            <span class="kpi-label">Active Projects</span>
+          </div>
+          <div class="kpi-trend up">↑ 12%</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-icon blue">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <circle cx="10" cy="8" r="4" stroke="currentColor" stroke-width="1.5"/>
+              <path d="M3 18c0-3.866 3.134-7 7-7s7 3.134 7 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="kpi-data">
+            <span class="kpi-value" id="kpiTeam">—</span>
+            <span class="kpi-label">Team Members</span>
+          </div>
+          <div class="kpi-trend up">↑ 3 new</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-icon green">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <path d="M4 10l4 4 8-8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="kpi-data">
+            <span class="kpi-value" id="kpiTasks">—</span>
+            <span class="kpi-label">Tasks Completed</span>
+          </div>
+          <div class="kpi-trend up">↑ 8% this week</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-icon purple">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <path d="M2 14l4-8 4 5 3-3 5 6H2z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="kpi-data">
+            <span class="kpi-value" id="kpiVelocity">—</span>
+            <span class="kpi-label">Sprint Velocity</span>
+          </div>
+          <div class="kpi-trend down">↓ 2% vs last</div>
+        </div>
+      </div>
+
+      <!-- Activity + Quick Profile -->
+      <div class="overview-grid">
+        <div class="overview-card">
+          <div class="card-header">
+            <h3>Recent Activity</h3>
+            <button class="card-action">View all</button>
+          </div>
+          <div class="activity-list" id="activityList">
+            <!-- Populated by JS -->
+          </div>
+        </div>
+
+        <div class="overview-card">
+          <div class="card-header">
+            <h3>Account Summary</h3>
+            <button class="card-action" onclick="switchPage('profile')">Edit profile</button>
+          </div>
+          <div class="profile-summary" id="profileSummary">
+            <!-- Populated by JS -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PAGE: PROFILE -->
+    <div class="page" id="page-profile">
+      <div class="page-header">
+        <div>
+          <h1 class="page-title">Profile</h1>
+          <p class="page-sub">Your Google account information and session details.</p>
+        </div>
+      </div>
+
+      <div class="profile-layout">
+        <!-- Profile Card -->
+        <div class="profile-card-main">
+          <div class="pcm-cover"></div>
+          <div class="pcm-body">
+            <div class="pcm-avatar-wrap">
+              <img id="profileAvatar" src="https://i.pravatar.cc/96?img=12" alt="Profile" class="pcm-avatar" />
+              <span class="pcm-verified" title="Verified Google Account">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                  <circle cx="7" cy="7" r="7" fill="#4285F4"/>
+                  <path d="M4 7l2 2 4-4" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+              </span>
+            </div>
+            <h2 id="profileName">Alex Morgan</h2>
+            <p id="profileEmail" class="pcm-email">alex.morgan@example.com</p>
+            <div class="pcm-badges">
+              <span class="pcm-badge google">
+                <svg width="14" height="14" viewBox="0 0 20 20" fill="none">
+                  <path d="M19.6 10.23c0-.68-.06-1.36-.18-2H10v3.79h5.39a4.6 4.6 0 01-2 3.02v2.5h3.24c1.9-1.75 3-4.33 3-7.31z" fill="#4285F4"/>
+                  <path d="M10 20c2.7 0 4.96-.9 6.62-2.43l-3.24-2.51c-.9.6-2.04.96-3.38.96-2.6 0-4.8-1.75-5.59-4.11H1.07v2.6A10 10 0 0010 20z" fill="#34A853"/>
+                  <path d="M4.41 11.91A6.01 6.01 0 014.1 10c0-.66.11-1.3.31-1.91V5.49H1.07A10 10 0 000 10c0 1.61.39 3.14 1.07 4.51l3.34-2.6z" fill="#FBBC05"/>
+                  <path d="M10 3.98c1.47 0 2.79.5 3.83 1.5l2.87-2.87C14.96.9 12.7 0 10 0A10 10 0 001.07 5.49l3.34 2.6C5.2 5.73 7.4 3.98 10 3.98z" fill="#EA4335"/>
+                </svg>
+                Google Account
+              </span>
+              <span class="pcm-badge verified">✓ Verified</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Profile Data Table -->
+        <div class="profile-data-panel">
+          <div class="card-header">
+            <h3>Profile Information</h3>
+            <span class="data-source-badge">
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                <circle cx="6" cy="6" r="5" stroke="#4285F4" stroke-width="1"/>
+                <path d="M4 6l1.5 1.5L8 4" stroke="#4285F4" stroke-width="1" stroke-linecap="round"/>
+              </svg>
+              Google OAuth 2.0
+            </span>
+          </div>
+          <div class="data-table-wrap">
+            <table class="data-table" id="profileTable">
+              <thead>
+                <tr>
+                  <th>Field</th>
+                  <th>Value</th>
+                  <th>Source</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody id="profileTableBody">
+                <!-- Populated by JS -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- Session Info -->
+      <div class="session-panel">
+        <div class="card-header">
+          <h3>Session Details</h3>
+          <span class="session-live">
+            <span class="session-dot"></span> Live session
+          </span>
+        </div>
+        <div class="session-grid" id="sessionGrid">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+    </div>
+
+    <!-- PAGE: PERMISSIONS -->
+    <div class="page" id="page-permissions">
+      <div class="page-header">
+        <div>
+          <h1 class="page-title">Permissions & Scopes</h1>
+          <p class="page-sub">OAuth 2.0 scopes granted by your Google account.</p>
+        </div>
+        <div class="page-header-actions">
+          <button class="btn-outline-sm" id="exportPermsBtn">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+              <path d="M7 1v8M4 6l3 3 3-3M2 11h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+            Export
+          </button>
+        </div>
+      </div>
+
+      <!-- Permissions Summary -->
+      <div class="perms-summary">
+        <div class="ps-card">
+          <div class="psc-num" id="psGranted">0</div>
+          <div class="psc-lbl">Scopes Granted</div>
+        </div>
+        <div class="ps-card">
+          <div class="psc-num green" id="psActive">0</div>
+          <div class="psc-lbl">Active</div>
+        </div>
+        <div class="ps-card">
+          <div class="psc-num orange" id="psPending">0</div>
+          <div class="psc-lbl">Pending Review</div>
+        </div>
+        <div class="ps-card">
+          <div class="psc-num" id="psProvider">Google</div>
+          <div class="psc-lbl">Auth Provider</div>
+        </div>
+      </div>
+
+      <!-- Permissions Table -->
+      <div class="data-panel">
+        <div class="card-header">
+          <h3>Granted Permissions</h3>
+          <div class="table-filters">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="active">Active</button>
+            <button class="filter-btn" data-filter="sensitive">Sensitive</button>
+          </div>
+        </div>
+        <div class="data-table-wrap">
+          <table class="data-table" id="permissionsTable">
+            <thead>
+              <tr>
+                <th>Scope</th>
+                <th>Description</th>
+                <th>Category</th>
+                <th>Risk Level</th>
+                <th>Status</th>
+                <th>Granted At</th>
+              </tr>
+            </thead>
+            <tbody id="permissionsTableBody">
+              <!-- Populated by JS -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- PAGE: ACTIVITY -->
+    <div class="page" id="page-activity">
+      <div class="page-header">
+        <div>
+          <h1 class="page-title">Activity Log</h1>
+          <p class="page-sub">A complete audit trail of your account actions.</p>
+        </div>
+      </div>
+      <div class="data-panel">
+        <div class="card-header">
+          <h3>Recent Events</h3>
+          <span class="data-source-badge">Last 30 days</span>
+        </div>
+        <div class="data-table-wrap">
+          <table class="data-table" id="activityTable">
+            <thead>
+              <tr>
+                <th>Event</th>
+                <th>Type</th>
+                <th>IP Address</th>
+                <th>Device</th>
+                <th>Location</th>
+                <th>Timestamp</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="activityTableBody">
+              <!-- Populated by JS -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- PAGE: SECURITY -->
+    <div class="page" id="page-security">
+      <div class="page-header">
+        <div>
+          <h1 class="page-title">Security</h1>
+          <p class="page-sub">Manage your account security and active sessions.</p>
+        </div>
+      </div>
+      <div class="security-grid">
+        <div class="security-card">
+          <div class="sc-icon green">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M12 2L4 6v6c0 5.5 3.8 10.7 8 12 4.2-1.3 8-6.5 8-12V6L12 2z" stroke="currentColor" stroke-width="1.5"/>
+              <path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="sc-content">
+            <h4>Account Protected</h4>
+            <p>Your account is secured via Google OAuth 2.0 with industry-standard encryption.</p>
+          </div>
+          <span class="sc-status green">Active</span>
+        </div>
+        <div class="security-card">
+          <div class="sc-icon blue">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <rect x="5" y="11" width="14" height="10" rx="2" stroke="currentColor" stroke-width="1.5"/>
+              <path d="M8 11V7a4 4 0 018 0v4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="sc-content">
+            <h4>Two-Factor Authentication</h4>
+            <p>Managed by Google. Your Google account's 2FA settings apply here.</p>
+          </div>
+          <span class="sc-status blue">Via Google</span>
+        </div>
+        <div class="security-card">
+          <div class="sc-icon orange">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/>
+              <path d="M12 8v4l3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="sc-content">
+            <h4>Session Expiry</h4>
+            <p id="sessionExpiry">Token expires in 59 minutes. Auto-refresh enabled.</p>
+          </div>
+          <span class="sc-status orange">Monitored</span>
+        </div>
+      </div>
+
+      <div class="data-panel" style="margin-top:24px">
+        <div class="card-header">
+          <h3>Active Sessions</h3>
+        </div>
+        <div class="data-table-wrap">
+          <table class="data-table">
+            <thead>
+              <tr><th>Device</th><th>Browser</th><th>IP</th><th>Location</th><th>Last Active</th><th>Action</th></tr>
+            </thead>
+            <tbody id="sessionsTableBody">
+              <!-- Populated by JS -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- PAGE: INTEGRATIONS -->
+    <div class="page" id="page-integrations">
+      <div class="page-header">
+        <div>
+          <h1 class="page-title">Integrations</h1>
+          <p class="page-sub">Connected apps and services in your workspace.</p>
+        </div>
+      </div>
+      <div class="integrations-grid" id="integrationsGrid">
+        <!-- Populated by JS -->
+      </div>
+    </div>
+
+  </main>
+
+  <script src="dashboard.js"></script>
+</body>
+</html>
