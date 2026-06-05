@@ -10,7 +10,7 @@ A modern and responsive developer portfolio showcasing my journey in software de
 
 ## 👨‍💻 About Me
 
-Hello! I'm **Srinjoy Pramanick (Nexus)**, a passionate Computer Science Engineering student and aspiring Full-Stack Developer.
+Hello! I'm **Srinjoy Pramanick ( Building Nexus)**, a passionate Computer Science Engineering student and aspiring Full-Stack Developer.
 
 I enjoy building modern web applications, automating workflows, exploring AI technologies, and working with Linux-based systems. My goal is to create practical solutions that solve real-world problems while continuously improving my technical skills.
 
