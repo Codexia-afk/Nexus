@@ -1,4 +1,4 @@
-# 🚀 Nexus Portfolio Website
+# 🚀 Nexus_Portfolio_Website
 
 A modern and responsive developer portfolio showcasing my journey in software development, AI automation, Linux systems, and web technologies.
 
