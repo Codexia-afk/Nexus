@@ -2,7 +2,7 @@
 
 A modern and responsive developer portfolio showcasing my journey in software development, AI automation, Linux systems, and web technologies.
 
-## 🌐 Live Demo
+## 🌐 Live_Demo
 
 **Portfolio:** https://nexus-srinjoy19s-projects.vercel.app/
 
